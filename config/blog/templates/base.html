@@ -1,0 +1,24 @@
+{% load static %}
+<!Doctype html>
+<html>
+    <head>
+        <title>Django Blog</title>
+        <link rel="stylesheet" href="{%static 'css/base.css'%}">
+        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,600;0,900;1,600&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <div class="nav-left">
+                <h1><a href="{% url 'home' %}">Django Blog</a></h1>
+            </div>
+            <div class="nav-right">
+                <h1><a href="{% url 'post_new' %}">New Blog Post</a></h1>
+            </div>
+        </header>
+        <div>
+            {% block content %}
+            {% endblock %}
+        </div>
+
+    </body>
+</html>
