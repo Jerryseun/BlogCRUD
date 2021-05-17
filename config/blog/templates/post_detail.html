@@ -5,6 +5,21 @@
         <h2>{{ post.title }}</h2>
         <p>{{ post.body }}</p>
     </div>
+    <!--Comment section-->
+    <h3>Comment</h3>
+    {% if not post.comments.all %}
+        No comments yet<a href="{% url 'post_comment' post.pk %}">+ Add Comment</a>
+    {% else %}
+        {% for comment in post.comments.all %}
+            <strong>
+            {{ comment.name }}
+            {{comment.date_added}}
+            <br>
+            {{ comment.body }}
+            </strong>
+        {% endfor %}
+    {% endif %}
+    <br>
     <a href="{% url 'post_edit' post.pk %}">+ Edit Blog Post</a>
     <a href="{% url 'post_delete' post.pk %}">+ Delete Blog Post</a>
 
